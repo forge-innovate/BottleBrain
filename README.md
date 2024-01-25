@@ -72,6 +72,9 @@ Input the following:
 >    use Default Dapp Address <br/>
 >    select string encoding and input `example request stated above` as requested string
 
+## Result
+
+A payload is generated in hexadecimal but reads on a scale of 1 - 10 measuring from bad to good 
 
 ## Contributing
 
