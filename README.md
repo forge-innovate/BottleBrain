@@ -31,7 +31,7 @@ Sunodo is a powerful tool for managing and deploying applications. To install Su
 ## Clone the repository:
 
 ```javascript
-git clone https://github.com/the-first-elder/BottleBrain.git
+git clone https://github.com/forge-innovate/BottleBrain.git
 sunodo build
 sunodo run
 ```
