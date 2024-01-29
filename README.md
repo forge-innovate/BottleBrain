@@ -63,18 +63,17 @@ acid" : 0 , "residual sugar" : 1.9 , "chlorides" : 0.076 , "free sulfur dioxide"
 
 Input the following:
 
-
 > sunodo send generic <br/>
->    Select Foundry <br/>
->    Use Default Rpc Url <br/>
->    Use Default Wallet Mnemonic <br/>
->    select any address <br/>
->    use Default Dapp Address <br/>
->    select string encoding and input `example request stated above` as requested string
+> Select Foundry <br/>
+> Use Default Rpc Url <br/>
+> Use Default Wallet Mnemonic <br/>
+> select any address <br/>
+> use Default Dapp Address <br/>
+> select string encoding and input `example request stated above` as requested string
 
 ## Result
 
-A payload is generated in hexadecimal but reads on a scale of 1 - 10 measuring from bad to good 
+A payload is generated in hexadecimal but reads on a scale of 1 - 10 measuring from bad to good.
 
 ## Contributing
 
