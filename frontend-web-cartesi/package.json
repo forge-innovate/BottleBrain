@@ -80,6 +80,9 @@
         "stream-browserify": "^3.0.0",
         "stream-http": "^3.2.0",
         "typechain": "^8.0.0",
-        "url": "^0.11.0"
+        "url": "^0.11.0",
+        "react-icons": "^5.0.1",
+        "tailwindcss": "3.4.1",
+        "autoprefixer": "10.4.16"
     }
 }

@@ -1,0 +1,51 @@
+/* WinePouringAnimation.css */
+
+@keyframes winePour {
+    0% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(50px);
+    }
+    100% {
+      transform: translateY(0);
+    }
+  }
+  
+  .wine-pouring-container {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+  }
+  
+  .bottle {
+    width: 50px;
+    height: 150px;
+    background-color: #804000; /* Dark brown */
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .wine {
+    width: 30px;
+    height: 0;
+    background-color: #8b0000; /* Dark red */
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: winePour 2s infinite;
+  }
+  
+  .cup {
+    width: 80px;
+    height: 120px;
+    background-color: #ffcccb; /* Light pink */
+    position: absolute;
+    top: 150px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
