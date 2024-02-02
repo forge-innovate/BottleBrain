@@ -44,23 +44,33 @@ const App: FC = () => {
 
   return (
     <div className="">
- 
-      <Navbar />
-  {!wallet && (
-    <div className="text-4xl flex justify-center items-center h-screen">Please connect your wallet</div>
-  )}
-      <Container>
-        <GraphQLProvider>
-          <Input dappAddress={dappAddress} />
-          {/* <h2>Reports</h2>
+			<Navbar />
+			<div style={{ display: "flex", marginTop: "3%" }}>
+				<Container>
+					<GraphQLProvider>
+						<div style={{ display: "flex" }}>
+							<div>
+								<Input dappAddress={dappAddress} />
+							</div>
+							{/* <h2>Reports</h2>
           <Reports /> */}
-          {/* <h2>Notices</h2> */}
-          <Notices />
-          {/* <h2>Vouchers</h2>
+							{/* <h2>Notices</h2> */}
+							<div>
+								<h2
+									className="flex mb-2 justify-center uppercase font-bold text-blue-600"
+									style={{ fontFamily: "Henny Penny", fontSize: "30px" }}
+								>
+									Result
+								</h2>
+								<Notices />
+							</div>
+						</div>
+						{/* <h2>Vouchers</h2>
           <Vouchers dappAddress={dappAddress} /> */}
-        </GraphQLProvider>
-      </Container>
-    </div>
+					</GraphQLProvider>
+				</Container>
+			</div>
+		</div>
   );
 };
 
