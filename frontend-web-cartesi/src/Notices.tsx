@@ -27,7 +27,7 @@ const NoticeTable: React.FC<{ notices: Notice[] }> = ({ notices }) => (
         {notices.length === 0 && (
           <tr>
             <td colSpan={3} className="px-4 py-2">
-              No notices
+              No result yet
             </td>
           </tr>
         )}

@@ -88,7 +88,7 @@ export const Input: React.FC<IInputProps> = (props) => {
         return 0;
     }
   };
-  
+
   const getMaxValue = (parameter: string): number => {
     switch (parameter) {
       case "fixed acidity":
@@ -117,7 +117,6 @@ export const Input: React.FC<IInputProps> = (props) => {
         return 0;
     }
   };
-  
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -182,8 +181,10 @@ export const Input: React.FC<IInputProps> = (props) => {
         <div className="flex justify-center items-center h-screen">
           <div className="max-w-3xl flex w-full space-x-8">
             <div className="w-full p-4">
-              <h1 className="flex text-2xl font-bold mb-4 justify-center" style={{ fontFamily: "Henny Penny", fontSize: "30px" }}
-							>
+              <h1
+                className="flex text-2xl font-bold mb-4 justify-center"
+                style={{ fontFamily: "Henny Penny", fontSize: "30px" }}
+              >
                 WINE QUALITY DETECTOR
               </h1>
 
@@ -240,8 +241,12 @@ export const Input: React.FC<IInputProps> = (props) => {
               }`}
             >
               <div className="mb-4">
-                <h2 className="text-xl font-bold mb-20" style={{ fontFamily: "Henny Penny", fontSize: "30px" }}
-							>Live Preview</h2>
+                <h2
+                  className="text-xl font-bold mb-20"
+                  style={{ fontFamily: "Henny Penny", fontSize: "30px" }}
+                >
+                  Live Preview
+                </h2>
                 <div
                   className="p-4 border border-red-200 rounded-md shadow-blue-400 
             hover:shadow-blue-500 shadow-md cursor-pointer

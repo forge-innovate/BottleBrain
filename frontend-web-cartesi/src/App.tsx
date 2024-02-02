@@ -13,6 +13,7 @@ import { Reports } from "./Reports";
 import { Notices } from "./Notices";
 import configFile from "./config.json";
 import { useWallets } from "@web3-onboard/react";
+import HomePage from "./HomePage";
 
 const config: any = configFile;
 
@@ -43,34 +44,47 @@ const App: FC = () => {
   const [inputValues, setInputValues] = useState<Record<string, string>>({});
 
   return (
-    <div className="">
-			<Navbar />
-			<div style={{ display: "flex", marginTop: "3%" }}>
-				<Container>
-					<GraphQLProvider>
-						<div style={{ display: "flex" }}>
-							<div>
-								<Input dappAddress={dappAddress} />
-							</div>
-							{/* <h2>Reports</h2>
+    <div className="bg-purple-100">
+      <Navbar />
+      {!wallet ? (
+        <HomePage />
+      ) : (
+        <div style={{ display: "flex", marginTop: "3%" }}>
+          <Container>
+            <GraphQLProvider>
+              <div style={{ display: "flex" }}>
+                <div className="flex ">
+                  <Input dappAddress={dappAddress} />
+                  <div>
+                    <h2
+                      className="mt-5 justify-center uppercase font-bold text-black"
+                      style={{ fontFamily: "Henny Penny", fontSize: "30px" }}
+                    >
+                      Result
+                    </h2>
+                    <Notices />
+                  </div>
+                </div>
+                {/* <h2>Reports</h2>
           <Reports /> */}
-							{/* <h2>Notices</h2> */}
-							<div>
+                {/* <h2>Notices</h2> */}
+                {/* <div>
 								<h2
-									className="flex mb-2 justify-center uppercase font-bold text-blue-600"
+									className="flex mb-2 justify-center uppercase font-bold text-black"
 									style={{ fontFamily: "Henny Penny", fontSize: "30px" }}
 								>
 									Result
 								</h2>
 								<Notices />
-							</div>
-						</div>
-						{/* <h2>Vouchers</h2>
+							</div> */}
+              </div>
+              {/* <h2>Vouchers</h2>
           <Vouchers dappAddress={dappAddress} /> */}
-					</GraphQLProvider>
-				</Container>
-			</div>
-		</div>
+            </GraphQLProvider>
+          </Container>
+        </div>
+      )}
+    </div>
   );
 };
 

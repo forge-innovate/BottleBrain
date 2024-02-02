@@ -4,7 +4,7 @@ import { Network } from "../Network";
 const Navbar = () => {
   return (
     <div
-      className="sticky top-0 z-50 w-full bg-gradient-to-r from-purple-700 to-fuchsia-800
+      className="sticky top-0 z-50 w-full bg-gradient-to-r from-purple-500 to-fuchsia-600
       shadow-sm  "
     >
       <div className="py-4 broder-b-[1px]">
@@ -17,6 +17,7 @@ const Navbar = () => {
               href={"/"}
               className={` font-bold text-2xl
                      sm:text-xl text-white`}
+              style={{ fontFamily: "Henny Penny", fontSize: "30px" }}
             >
               BottleBrain
             </a>
