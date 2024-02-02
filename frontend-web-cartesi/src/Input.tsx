@@ -1,11 +1,10 @@
 import React, { useState, ChangeEvent, FormEvent } from "react";
-
 import { ToastContainer, toast } from "react-toastify";
-import { useNoticesQuery } from "./generated/graphql";
 import "react-toastify/dist/ReactToastify.css";
 import { ethers } from "ethers";
 import { useRollups } from "./useRollups";
 import { useWallets } from "@web3-onboard/react";
+import { useNoticesQuery } from "./generated/graphql";
 
 interface IInputProps {
   dappAddress: string;
@@ -18,6 +17,7 @@ interface InputValues {
 interface Errors {
   [key: string]: string;
 }
+
 const parameters: string[] = [
   "fixed acidity",
   "volatile acidity",
@@ -31,26 +31,93 @@ const parameters: string[] = [
   "sulphates",
   "alcohol",
 ];
+
 export const Input: React.FC<IInputProps> = (props) => {
   const [loading, setLoading] = useState(false);
   const [result, reexecuteQuery] = useNoticesQuery();
 
   const rollups = useRollups(props.dappAddress);
   const [connectedWallet] = useWallets();
-  const [input, setInput] = useState<string>("");
-  const [hexInput, setHexInput] = useState<boolean>(false);
-
   const [inputValues, setInputValues] = useState<InputValues>({});
   const [errors, setErrors] = useState<Errors>({});
   const isDecimal = (value: string): boolean => /^-?\d+(\.\d+)?$/.test(value);
 
   const handleInputChange = (parameter: string, value: string) => {
+    const minValue = getMinValue(parameter);
+    const maxValue = getMaxValue(parameter);
+
+    const isValid =
+      isDecimal(value) &&
+      parseFloat(value) >= minValue &&
+      parseFloat(value) <= maxValue;
+
     setInputValues((prevValues) => ({ ...prevValues, [parameter]: value }));
     setErrors((prevErrors) => ({
       ...prevErrors,
-      [parameter]: !isDecimal(value) ? "Please enter a valid  parameter" : "",
+      [parameter]: isValid
+        ? ""
+        : `Please enter a valid value between ${minValue} and ${maxValue}`,
     }));
   };
+
+  const getMinValue = (parameter: string): number => {
+    switch (parameter) {
+      case "fixed acidity":
+        return 4.0;
+      case "volatile acidity":
+        return 0.1;
+      case "citric acid":
+        return 0.1;
+      case "residual sugar":
+        return 0;
+      case "chlorides":
+        return 0.02;
+      case "free sulfur dioxide":
+        return 5;
+      case "total sulfur dioxide":
+        return 20;
+      case "density":
+        return 0.99;
+      case "pH":
+        return 3.0;
+      case "sulphates":
+        return 0.3;
+      case "alcohol":
+        return 8;
+      default:
+        return 0;
+    }
+  };
+  
+  const getMaxValue = (parameter: string): number => {
+    switch (parameter) {
+      case "fixed acidity":
+        return 9.0;
+      case "volatile acidity":
+        return 1.0;
+      case "citric acid":
+        return 0.7;
+      case "residual sugar":
+        return 50;
+      case "chlorides":
+        return 0.2;
+      case "free sulfur dioxide":
+        return 40;
+      case "total sulfur dioxide":
+        return 300;
+      case "density":
+        return 1.01;
+      case "pH":
+        return 4.0;
+      case "sulphates":
+        return 1.0;
+      case "alcohol":
+        return 16;
+      default:
+        return 0;
+    }
+  };
+  
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -67,23 +134,11 @@ export const Input: React.FC<IInputProps> = (props) => {
         ? parseFloat(inputValue)
         : 0;
     }
+
     console.log("Numeric values:", numericValues);
     const serializedValues = JSON.stringify(numericValues);
     // Call addInput with the serialized values
     addInput(serializedValues);
-  };
-
-  const isLivePreviewEmpty = () =>
-    Object.values(inputValues).every((value) => value === "");
-
-  const sendAddress = async (str: string) => {
-    if (rollups) {
-      try {
-        await rollups.relayContract.relayDAppAddress(props.dappAddress);
-      } catch (e) {
-        console.log(`${e}`);
-      }
-    }
   };
 
   const addInput = async (str: string) => {
@@ -103,7 +158,7 @@ export const Input: React.FC<IInputProps> = (props) => {
           reexecuteQuery({ requestPolicy: "network-only" });
           setLoading(false);
           setInputValues({});
-          return toast.success("Transaction successfull!");
+          return toast.success("Transaction successful!");
         } else {
           setLoading(false);
           return toast.error("Transaction failed!");
@@ -115,6 +170,11 @@ export const Input: React.FC<IInputProps> = (props) => {
       }
     }
   };
+
+  const isLivePreviewEmpty = () =>
+    Object.values(inputValues).every((value) => value === "");
+
+  const [hexInput, setHexInput] = useState<boolean>(false);
 
   return (
     <div>
