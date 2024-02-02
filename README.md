@@ -2,7 +2,7 @@
 
 ## Introduction
 
-BottleBrain is a machine learning model designed to predict the quality of a wine based on its characteristics using the [Red and White Wine Quality Analysis Model](https://www.kaggle.com/datasets/saigeethac/red-and-white-wine-quality-datasets). Built on the Cartesi DApp, BottleBrain leverages the power of blockchain technology to provide a transparent, secure, and efficient wine quality prediction service.
+BottleBrain is a Dapp build using a machine learning model designed to predict the quality of a wine based on its characteristics using the [Red and White Wine Quality Analysis Model](https://www.kaggle.com/datasets/saigeethac/red-and-white-wine-quality-datasets). Built on the Cartesi Machine, BottleBrain leverages the power of blockchain technology to provide a transparent, secure, and efficient wine quality prediction service.
 
 ## Getting Started
 
