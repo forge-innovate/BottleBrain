@@ -102,6 +102,7 @@ export const Input: React.FC<IInputProps> = (props) => {
         if (transaction) {
           reexecuteQuery({ requestPolicy: "network-only" });
           setLoading(false);
+          setInputValues({});
           return toast.success("Transaction successfull!");
         } else {
           setLoading(false);

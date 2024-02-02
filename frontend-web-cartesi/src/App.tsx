@@ -5,6 +5,8 @@ import Navbar from "./NavBar/NavBar";
 import Container from "./Container";
 import { GraphQLProvider } from "./GraphQL";
 import { Input } from "./Input";
+
+import { useConnectWallet, useSetChain } from "@web3-onboard/react";
 import { Inspect } from "./Inspect";
 import { Vouchers } from "./Vouchers";
 import { Reports } from "./Reports";
@@ -34,6 +36,7 @@ init({
 });
 
 const App: FC = () => {
+  const [{ wallet, connecting }, connect, disconnect] = useConnectWallet();
   const [dappAddress, setDappAddress] = useState<string>(
     "0x70ac08179605AF2D9e75782b8DEcDD3c22aA4D0C"
   );
@@ -41,7 +44,11 @@ const App: FC = () => {
 
   return (
     <div className="">
+ 
       <Navbar />
+  {!wallet && (
+    <div className="text-4xl flex justify-center items-center h-screen">Please connect your wallet</div>
+  )}
       <Container>
         <GraphQLProvider>
           <Input dappAddress={dappAddress} />

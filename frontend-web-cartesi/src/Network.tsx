@@ -15,7 +15,7 @@ import configFile from "./config.json";
 
 const config: any = configFile;
 
-export const Network: FC = () => {
+export const Network: any = () => {
   const [{ wallet, connecting }, connect, disconnect] = useConnectWallet();
   const [{ chains, connectedChain, settingChain }, setChain] = useSetChain();
 
