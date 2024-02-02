@@ -1,12 +1,12 @@
 import Container from "../Container";
 import { Network } from "../Network";
 
-
-
 const Navbar = () => {
   return (
-    <div className="sticky top-0 z-50 w-full bg-gradient-to-r from-purple-700 to-fuchsia-800
-      shadow-sm  ">
+    <div
+      className="sticky top-0 z-50 w-full bg-gradient-to-r from-purple-700 to-fuchsia-800
+      shadow-sm  "
+    >
       <div className="py-4 broder-b-[1px]">
         <Container>
           <div
@@ -16,19 +16,18 @@ const Navbar = () => {
             <a
               href={"/"}
               className={` font-bold text-2xl
-                     sm:text-xl text-white` } 
+                     sm:text-xl text-white`}
             >
               BottleBrain
             </a>
             <div className="hidden md:block"></div>
             <div className="flex items-center gap-8 md:gap-12 ">
-                {/* <button className="p-2 flex rounded-md bg-green-500 text-xl text-white"> */}
-            <Network />
+              {/* <button className="p-2 flex rounded-md bg-green-500 text-xl text-white"> */}
+              <Network />
 
-                {/* </button> */}
-              
-              <div className="cursor-pointer">
-              </div>
+              {/* </button> */}
+
+              <div className="cursor-pointer"></div>
             </div>
           </div>
         </Container>

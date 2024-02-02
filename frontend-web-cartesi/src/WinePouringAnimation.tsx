@@ -1,7 +1,7 @@
 // WinePouringAnimation.tsx
 
-import React, { useEffect, useState } from 'react';
-import './WinePouringAnimation.css';
+import React, { useEffect, useState } from "react";
+import "./WinePouringAnimation.css";
 
 const WinePouringAnimation: React.FC = () => {
   const [wineHeight, setWineHeight] = useState<number>(0);
@@ -23,7 +23,7 @@ const WinePouringAnimation: React.FC = () => {
   return (
     <div className="wine-pouring-container">
       <div className="bottle">
-        <div className="wine" style={{ height: wineHeight + 'px' }}></div>
+        <div className="wine" style={{ height: wineHeight + "px" }}></div>
       </div>
       <div className="cup"></div>
     </div>

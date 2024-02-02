@@ -3,23 +3,23 @@
 @tailwind utilities;
 
 :root {
-    --icons-color: #b24bf3;
-    --icons-light-color: #ffdf2b57;
-    --icons-bg-color: #b24bf3;
-    --shadow-dark-color: #4d0775;
-    --bg-shadow-dark-color: #555557;
-    --shadow-light-color: #232325;
-    --main-bg-color: radial-gradient(
-      115.05% 275.33% at 3.47% 8.73%,
-      #4d0775 0%,
-      #251337 22.71%,
-      #040013 47.19%,
-      #1a0229 65.21%,
-      #2a033f 82.41%
-    );
-    --overlay: #2323255e;
-  
-    --box-shadow: 1px 1px 2px #c576f6, -1px -1px 2px #c576f6;
-  
-    --box-shadow: 1px 1px 2px #c576f6, -1px -1px 2px #c576f6;
-  }
+  --icons-color: #b24bf3;
+  --icons-light-color: #ffdf2b57;
+  --icons-bg-color: #b24bf3;
+  --shadow-dark-color: #4d0775;
+  --bg-shadow-dark-color: #555557;
+  --shadow-light-color: #232325;
+  --main-bg-color: radial-gradient(
+    115.05% 275.33% at 3.47% 8.73%,
+    #4d0775 0%,
+    #251337 22.71%,
+    #040013 47.19%,
+    #1a0229 65.21%,
+    #2a033f 82.41%
+  );
+  --overlay: #2323255e;
+
+  --box-shadow: 1px 1px 2px #c576f6, -1px -1px 2px #c576f6;
+
+  --box-shadow: 1px 1px 2px #c576f6, -1px -1px 2px #c576f6;
+}

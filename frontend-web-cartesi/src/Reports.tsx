@@ -18,41 +18,43 @@ export const Reports: React.FC = () => {
 
   if (!data || !data.reports) return <p>No reports</p>;
 
-  const reports: Report[] = data.reports.edges.map((node: any) => {
-    const n = node.node;
-    let inputPayload = n?.input.payload;
-    if (inputPayload) {
-      try {
-        inputPayload = ethers.utils.toUtf8String(inputPayload);
-      } catch (e) {
-        inputPayload = inputPayload + " (hex)";
+  const reports: Report[] = data.reports.edges
+    .map((node: any) => {
+      const n = node.node;
+      let inputPayload = n?.input.payload;
+      if (inputPayload) {
+        try {
+          inputPayload = ethers.utils.toUtf8String(inputPayload);
+        } catch (e) {
+          inputPayload = inputPayload + " (hex)";
+        }
+      } else {
+        inputPayload = "(empty)";
       }
-    } else {
-      inputPayload = "(empty)";
-    }
-    let payload = n?.payload;
-    if (payload) {
-      try {
-        payload = ethers.utils.toUtf8String(payload);
-      } catch (e) {
-        payload = payload + " (hex)";
+      let payload = n?.payload;
+      if (payload) {
+        try {
+          payload = ethers.utils.toUtf8String(payload);
+        } catch (e) {
+          payload = payload + " (hex)";
+        }
+      } else {
+        payload = "(empty)";
       }
-    } else {
-      payload = "(empty)";
-    }
-    return {
-      id: `${n?.id}`,
-      index: parseInt(n?.index),
-      payload: `${payload}`,
-      input: n ? { index: n.input.index, payload: inputPayload } : {},
-    };
-  }).sort((b: any, a: any) => {
-    if (a.input.index === b.input.index) {
-      return b.index - a.index;
-    } else {
-      return b.input.index - a.input.index;
-    }
-  });
+      return {
+        id: `${n?.id}`,
+        index: parseInt(n?.index),
+        payload: `${payload}`,
+        input: n ? { index: n.input.index, payload: inputPayload } : {},
+      };
+    })
+    .sort((b: any, a: any) => {
+      if (a.input.index === b.input.index) {
+        return b.index - a.index;
+      } else {
+        return b.input.index - a.input.index;
+      }
+    });
 
   return (
     <div className="bg-white p-6 rounded-lg shadow-md overflow-hidden">
